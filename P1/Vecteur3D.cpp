@@ -13,6 +13,9 @@ class Vecteur3D {
     void affiche() const {
       std:: cout << vecteur[0] << " "<< vecteur[1]<< " "<< vecteur[2]<< std::endl;
     }
+    std::string stri() const {
+      return std::to_string(vecteur[0]) + " " + std::to_string(vecteur[1]) + " " + std::to_string(vecteur[2]);
+    }
     bool compare(Vecteur3D const& autre, double precision = 1e-10) const {
       return  std::abs(autre.vecteur[0] - vecteur[0])< precision 
           and std::abs(autre.vecteur[1] - vecteur[1])< precision
@@ -102,7 +105,45 @@ int main(){
       std::cout << "égal au";
   }
   std::cout << " vecteur 3." << std::endl;
-  return 0;
+  
+// test de l'addition, on a cree la methode stri pour tranformer l'affichage du vecteur en string
+  std::cout << "( " << vect1.stri() << " )" << " + " <<
+               "( " << vect2.stri() << " ) = " <<
+               "( " << vect1.addition(vect2).stri() << " ) " << std::endl;
+  std::cout << "( " << vect2.addition(vect1).stri() << " ) " << std::endl;
 
-  std::cout << "( " << 
-}
+// test de l'addition du vecteur nul
+
+  Vecteur3D vectnul;
+  vectnul.set_coord(0,0);
+  vectnul.set_coord(1,0);
+  vectnul.set_coord(2,0);
+  
+  std::cout << "( " << vect1.stri() << " )" << " + " <<
+               "( " << vectnul.stri() << " ) = " <<
+               "( " << vect1.addition(vectnul).stri() << " ) " << std::endl;
+  std::cout << "( " << vectnul.addition(vect1).stri() << " ) " << std::endl;
+  
+// test de la soustraction :
+  std::cout << "( " << vect1.stri() << " )" << " - " <<
+               "( " << vect2.stri() << " ) = " <<
+               "( " << vect1.soustraction(vect2).stri() << " ) " << std::endl;
+  std::cout << "( " << vect2.soustraction(vect1).stri() << " ) " << std::endl;
+
+// test de soustraction d'un vecteur à lui même :
+  std::cout << "( " << vect1.stri() << " )" << " - " <<
+               "( " << vect1.stri() << " ) = " <<
+               "( " << vect1.soustraction(vect1).stri() << " ) " << std::endl;
+
+// test addition oppose = soustraction:
+  std::cout << "addition opposé: " << std::endl;
+  std::cout << "( " << vect1.stri() << " )" << " + " <<
+               "( " << vect2.oppose().stri() << " ) = " <<
+               "( " << vect1.addition(vect2.oppose()).stri() << " ) " << std::endl;
+  std::cout<< "soustraction: " << std::endl;
+  std::cout << "( " << vect1.stri() << " )" << " - " <<
+               "( " << vect2.stri() << " ) = " <<
+               "( " << vect1.soustraction(vect2).stri() << " ) " << std::endl;
+
+  return 0;
+};
