@@ -145,5 +145,19 @@ int main(){
                "( " << vect2.stri() << " ) = " <<
                "( " << vect1.soustraction(vect2).stri() << " ) " << std::endl;
 
+  std::cout << "3 * (" << vect1.stri() << " = ()" << (vect1.mult(3.0)).stri() << ")" << std::endl;
+
+  std::cout << "(" << vect1.stri() << ") * (" << vect2.stri() << ") = " << vect1.prod_scal(vect2) << std::endl;
+  std::cout << "(" << vect2.stri() << ") * (" << vect1.stri() << ") = " << vect2.prod_scal(vect1) << std::endl;
+
+  std::cout << "(" << vect1.stri() << ") ^ (" << vect2.stri() << ") = (" << (vect1.prod_vect(vect2)).stri() << ")" << std::endl;
+
+  std::cout << "||" << vect1.stri() << "||^2 = " << vect1.norme2() << std::endl;
+
+  std::cout << "||" << vect1.stri() << "|| = " << vect1.norme() << std::endl;
+
+  std::cout << "||" << vect2.stri() << "||^2 = " << vect2.norme2() << std::endl;
+
+  std::cout << "||" << vect2.stri() << "|| = " << vect2.norme() << std::endl;
   return 0;
 };
