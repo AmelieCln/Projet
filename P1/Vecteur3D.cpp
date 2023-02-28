@@ -1,11 +1,12 @@
 #include <array>
 #include <iostream>
+#include <cmath>
 
 class Vecteur3D {
   private:
     std::array<double, 3> vecteur;
   public :
-    void set_coord(size_t pos_coo, double coo){
+    void set_coord(std::size_t pos_coo, double coo){
       if (pos_coo>2) std::cerr << "out of bound"<< std::endl;
       else vecteur[pos_coo] = coo;
     }
@@ -19,7 +20,7 @@ class Vecteur3D {
     }
     Vecteur3D addition(Vecteur3D const& autre) const{
       Vecteur3D v;
-      for (size_t i(0); i<3; ++i)
+      for (std::size_t i(0); i<3; ++i)
         v.vecteur[i]= autre.vecteur[i] + vecteur[i];
       return v;        
     }
@@ -31,17 +32,32 @@ class Vecteur3D {
     }
     Vecteur3D mult(double scale) const{
       Vecteur3D v;
-      for (size_t i(0); i<3; ++i)
+      for (std::size_t i(0); i<3; ++i)
         v.vecteur[i]= scale * vecteur[i];
       return v;
     }
-    double prod_scal(Vecteur3D autre) const {
+    double prod_scal(Vecteur3D const& autre) const {
       double x(0);
-      for (size_t i(0); i<3; ++i)
+      for (std::size_t i(0); i<3; ++i)
         x += autre.vecteur[i] * vecteur[i];
       return x;
     }
 
+    Vecteur3D prod_vect(Vecteur3D const& autre) const {
+      Vecteur3D v;
+      for (std::size_t i(0); i<3; ++i)
+        v.vecteur[i]= vecteur[(i+1)%3]*autre.vecteur[(i+2)%3] - vecteur[(i+2)%3]*autre.vecteur[(i+1)%3];
+      return v;
+    }
+    double norme2() const{
+      return prod_scal(*this);
+    }
+    double norme() const {
+      return sqrt(norme2());
+    }
+    Vecteur3D unitaire() const{
+      return (norme()< 1e-10) ? *this : mult(1/norme());   
+    }
 };
 
 
@@ -87,4 +103,6 @@ int main(){
   }
   std::cout << " vecteur 3." << std::endl;
   return 0;
+
+  std::cout << "( " << 
 }
