@@ -91,7 +91,7 @@ int main(){
 
 // test multiplication par un scalaire
   std::cout << "3 * ( " << vect1.stri() << " = " << 
-               "( " << (vect1.mult(3.0)).stri() << " )" << std::endl;
+               "( " << vect1.mult(3.0).stri() << " )" << std::endl;
 
 // test produit scalaire
   std::cout << "( " << vect1.stri() << " ) * " << 
@@ -104,7 +104,7 @@ int main(){
 // test produit vectoriel
   std::cout << "( " << vect1.stri() << " ) ^ " 
                "( " << vect2.stri() << ") = "
-               "( " << (vect1.prod_vect(vect2)).stri() << ")" << std::endl;
+               "( " << vect1.prod_vect(vect2).stri() << ")" << std::endl;
 
 //test normes au carré et normes
   std::cout << "||" << vect1.stri() << "||^2 = " << 
