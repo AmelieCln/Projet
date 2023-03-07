@@ -20,5 +20,3 @@ class Vecteur3D {
     double norme() const;
     Vecteur3D unitaire() const;
 };
-
-  
