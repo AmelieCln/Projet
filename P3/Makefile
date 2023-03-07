@@ -17,3 +17,6 @@ Vecteur3D.o: Vecteur3D.cpp Vecteur3D.h
 TestVecteur3D.o: TestVecteur3D.cpp Vecteur3D.h
 
 TestVecteur3D: TestVecteur3D.o Vecteur3D.o
+
+clean:
+	rm -f *.o
