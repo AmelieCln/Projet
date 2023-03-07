@@ -7,8 +7,8 @@ CXXFLAGS = -std=c++17  # C++11, ou autre suivant vos préférences
 #                    en décommentant la/les lignes correspondantes
 #
 CXXFLAGS += -pedantic -Wall       # pour les purs et durs
-# CXXFLAGS += -g                  # pour debugger
-# CXXFLAGS += -O2                 # pour optimiser la vitesse
+CXXFLAGS += -g                  # pour debugger
+CXXFLAGS += -O2                 # pour optimiser la vitesse
 
 all:: TestVecteur3D
 
