@@ -12,9 +12,9 @@ CXXFLAGS += -O2                 # pour optimiser la vitesse
 
 all:: TestVecteur3D
 
-Vecteur3D.o: Vecteur3D.cpp Vecteur3D.h
+Vecteur3D.o: Vecteur3D.cpp Vecteur3D.hpp
 
-TestVecteur3D.o: TestVecteur3D.cpp Vecteur3D.h
+TestVecteur3D.o: TestVecteur3D.cpp Vecteur3D.hpp
 
 TestVecteur3D: TestVecteur3D.o Vecteur3D.o
 
