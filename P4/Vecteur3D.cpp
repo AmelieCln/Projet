@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cmath>
-#include "Vecteur3D.h"
+#include "Vecteur3D.hpp"
 
 void Vecteur3D::set_coord(size_t pos_coo, double coo){
       if (pos_coo>2) std::cerr << "out of bound"<< std::endl;
