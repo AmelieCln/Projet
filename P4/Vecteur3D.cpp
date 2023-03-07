@@ -43,7 +43,7 @@ Vecteur3D Vecteur3D::mult(double scale) const{
       return v;
     }
 
-double Vecteur3D::prod_scal(Vecteur3D autre) const {
+double Vecteur3D::prod_scal(Vecteur3D const& autre) const {
       double x(0);
       for (size_t i(0); i<3; ++i)
         x += autre.vecteur[i] * vecteur[i];

@@ -1,5 +1,5 @@
-#include <array>
 #pragma once
+#include <array>
 
 class Vecteur3D {
   private:
@@ -14,7 +14,7 @@ class Vecteur3D {
     Vecteur3D oppose() const;
     Vecteur3D soustraction(Vecteur3D const& autre) const;
     Vecteur3D mult(double scale) const;
-    double prod_scal(Vecteur3D autre) const; 
+    double prod_scal(Vecteur3D const& autre) const; 
     Vecteur3D prod_vect(Vecteur3D const& autre) const;
     double norme2() const;
     double norme() const;
